@@ -15,7 +15,7 @@ public class CreateAccount {
 	}
 	
 	public WebElement getCreateAccountForm() {
-		return Utils.waitForElementPresence(driver, By.id("create-account_form"), 30);
+		return Utils.waitForElementPresence(driver, By.id("create-account_form"), 100);
 	}
 	
 	public WebElement getCreatAccountEmailField() {

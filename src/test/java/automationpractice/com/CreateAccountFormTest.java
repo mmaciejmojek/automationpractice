@@ -77,10 +77,12 @@ public class CreateAccountFormTest {
 		Assert.assertTrue(createAccount.getEmailBeenRegistered().isDisplayed());
 
 		// Correct email
-		createAccount.setCreateAccountEmailField("mapko123ct@gmail.com");
+		createAccount.setCreateAccountEmailField(EmailsGenerator.getNextEmail());
 		createAccount.getCreateAccountBtn().click();
 
 		Assert.assertTrue(createAccountForm.getAccountCreationForm().isDisplayed());
+
+
 	}
 
 	@Test(priority = 3)
@@ -155,7 +157,7 @@ public class CreateAccountFormTest {
 		Assert.assertTrue(createAccountForm.getMobilePhoneInvalidError().isDisplayed());
 
 		// Correct format
-		createAccountForm.setCustomerEmailField("email1@gmail.com");
+		createAccountForm.setCustomerEmailField(EmailsGenerator.getNextEmail());
 		createAccountForm.setCustomerPasswordField("tester");
 		createAccountForm.setPostalCodeField("21000");
 		createAccountForm.setHomePhoneField("056");
@@ -186,11 +188,7 @@ public class CreateAccountFormTest {
 		createAccountForm.setAddressAliasField("My Address");
 		createAccountForm.getRegisterBtn().click();
 
-		Assert.assertTrue(createAccountForm.getEmailBeenRegistered().isDisplayed());
 
-		createAccountForm.setCustomerEmailField(EmailsGenerator.getNextEmail());
-		createAccountForm.setCustomerPasswordField("tester123");
-		createAccountForm.getRegisterBtn().click();
 
 		Assert.assertTrue(createAccountForm.successfullyCreatedAccount().isDisplayed());
 	}
