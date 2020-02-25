@@ -80,7 +80,7 @@ public class CartSummary {
 	
 	public WebElement getCartProceedPreviousBtn() {
 		return Utils.waitToBeClickable(driver, By.xpath("//a[@title=\"Previous\"]"), 30);
-	}
+	}//*[@id="center_column"]
 	
 	public WebElement getCartProceedBtnTwo() {
 		return Utils.waitToBeClickable(driver, By.xpath("//button[@type=\"submit\"]/span[contains(text(), \"Proceed to checkout\")]"), 30);
@@ -151,7 +151,7 @@ public class CartSummary {
 	}
 	
 	public WebElement getCartSummSuccessMsg() {
-		return Utils.waitForElementPresence(driver, By.xpath("//p[contains(text(), \"Your order on My Store is complete.\")]"), 30);
+		return Utils.waitForElementPresence(driver, By.xpath("//p[contains(text(), \"Your order on My Store is complete.\")]"), 90);
 	}
 	
 	public List<WebElement> getCartSummTotalProductsNum() {

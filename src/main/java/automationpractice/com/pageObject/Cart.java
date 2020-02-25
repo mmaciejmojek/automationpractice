@@ -19,7 +19,7 @@ public class Cart {
 	public WebElement getCartTab() {
 		return Utils.waitForElementPresence(driver, By.xpath("//b[contains(text(), \"Cart\")]/.."), 30);
 	}
-	
+
 	public WebElement getCartEmpty() {
 		return Utils.waitForElementPresence(driver, By.xpath("//p[@class=\"cart_block_no_products unvisible\"]"), 30);
 	}
@@ -31,7 +31,7 @@ public class Cart {
 	public WebElement getCartProductsQty(int numOfProduct) {
 		return Utils.waitForElementPresence(driver, By.xpath("//dt[" + numOfProduct + "]//span[@class=\"quantity\"]"), 30);
 	}
-	
+
 	public WebElement getCartProductPrice(int numOfProduct) {
 		return Utils.waitForElementPresence(driver, By.xpath("//dt[" + numOfProduct + "]//span[@class=\"price\"]"), 30);
 	}
@@ -39,7 +39,7 @@ public class Cart {
 	public WebElement getCartProductDeleteX(int numOfElement) {
 		return Utils.waitToBeClickable(driver, By.xpath("//dt[" + numOfElement + "]//a[@class=\"ajax_cart_block_remove_link\"]"), 30);
 	}
-	
+
 	public WebElement getCartShipingFree() {
 		return Utils.waitForElementPresence(driver, By.xpath("//div[@class=\"cart-prices\"]//span[contains(.,\"Free shipping\")]"), 30);
 	}

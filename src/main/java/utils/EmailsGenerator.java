@@ -12,26 +12,25 @@ public class EmailsGenerator {
 	
 	private static final String FILE_PATH = "Email.txt";
 	private static final String MAIL_PATTERN = "mapko@yahoo.com:";
-	
+	private static Random random = new Random();
 	public static String getNextEmail() {
-		int index = 0;
+
+
 		String mail = null;
 		int randomValue = 0;
 
 
 		try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
 			String line = br.readLine();
-			
+
 			// mapko@yahoo.com:500
-			
+
 			String[] mailArr = line.split(":");
 			mail = mailArr[0];
-			index = Integer.parseInt(mailArr[1]);
 
-			Random random = new Random();
-			int randomInt = random.nextInt()+1;
+			randomValue = random.nextInt();
 
-			randomValue = ++index + randomInt;
+
 			int atIndex = mail.indexOf("@");
 
 			mail = mail.substring(0, atIndex) + randomValue + mail.substring(atIndex) ; // mapko501@yahoo.com

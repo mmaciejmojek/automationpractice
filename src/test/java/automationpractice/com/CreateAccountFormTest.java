@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import automationpractice.com.pageObject.Account;
 import automationpractice.com.pageObject.CreateAccount;
 import automationpractice.com.pageObject.CreateAccountForm;
@@ -14,29 +14,30 @@ import automationpractice.com.pageObject.Homepage;
 import automationpractice.com.pageObject.SignInForm;
 import utils.EmailsGenerator;
 
+
 public class CreateAccountFormTest {
 
-	private WebDriver driver;
+	private  WebDriver driver;
 
-	private Homepage homepage;
-	private CreateAccount createAccount;
-	private CreateAccountForm createAccountForm;
-	private SignInForm signin;
-	private Account account;
+	private  Homepage homepage;
+	private  CreateAccount createAccount;
+	private  CreateAccountForm createAccountForm;
+	private  SignInForm signin;
+	private  Account account;
 
 	@BeforeClass
-	public void setup() {
+	public  void setup() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		driver = new ChromeDriver();
-
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("disable-infobars");
+		options.addArguments("--start-maximized");
+		driver = new ChromeDriver(options);
 		homepage = new Homepage(driver);
 		createAccount = new CreateAccount(driver);
 		createAccountForm = new CreateAccountForm(driver);
 		signin = new SignInForm(driver);
 		account = new Account(driver);
-
 		String baseUrl = "http://automationpractice.com/index.php";
-		driver.manage().window().maximize();
 		driver.get(baseUrl);
 	}
 
