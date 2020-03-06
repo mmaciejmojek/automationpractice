@@ -151,7 +151,7 @@ public class CartSummary {
 	}
 	
 	public WebElement getCartSummSuccessMsg() {
-		return Utils.waitForElementPresence(driver, By.xpath("//p[contains(text(), \"Your order on My Store is complete.\")]"), 90);
+		return Utils.waitForElementPresence(driver, By.xpath("//p[contains(text(), \"Your order on My Store is complete.\")]"), 30);
 	}
 	
 	public List<WebElement> getCartSummTotalProductsNum() {

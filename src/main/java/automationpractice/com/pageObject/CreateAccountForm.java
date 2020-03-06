@@ -219,9 +219,9 @@ public class CreateAccountForm {
 	
 	public void selectState(String state) {
 		Select selectState = this.selectState();
-		selectState.selectByValue(state);
+		selectState.selectByVisibleText(utils.AddressGenerator.getNextAddressStateName());
 	}
-	
+
 	public void setPostalCodeField(String zip) {
 		WebElement postalCode = this.getPostalCodeField();
 		postalCode.clear();

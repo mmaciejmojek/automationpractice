@@ -16,6 +16,8 @@ import automationpractice.com.pageObject.ShoppingActions;
 import automationpractice.com.pageObject.SignInForm;
 import utils.EmailsGenerator;
 
+import java.io.FileNotFoundException;
+
 public class ShopWorkflowTest {
 
 	private WebDriver driver;
@@ -223,13 +225,13 @@ public class ShopWorkflowTest {
 	}
 
 	@Test(priority = 8)
-	public void billingAndDeliveryAddress() {
-		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), "John Doe");
-		Assert.assertEquals(summary.getCartSummBillingAdressOne().getText(), "Centar");
-		Assert.assertEquals(summary.getCartSummBillingAdressCityState().getText(), "Novi Sad, Connecticut 21000");
+	public void billingAndDeliveryAddress() throws FileNotFoundException {
+		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), utils.AddressGenerator.getCurrentAddressFirstName()+" "+utils.AddressGenerator.getCurrentAddressLastName());
+		Assert.assertEquals(summary.getCartSummBillingAdressOne().getText(), utils.AddressGenerator.getCurrentAddressStreetName());
+		Assert.assertEquals(summary.getCartSummBillingAdressCityState().getText(), utils.AddressGenerator.getCurrentAddressCityName() + ", " + utils.AddressGenerator.getCurrentAddressStateName() +" "+ utils.AddressGenerator.getCurrentAddressZipCode() );
 		Assert.assertEquals(summary.getCartSummBillingAdressCountry().getText(), "United States");
-		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), "056");
-		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), "066");
+		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), utils.AddressGenerator.getCurrentAddressHomePhone());
+		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), utils.AddressGenerator.getCurrentAddressMobilePhone());
 	}
 
 	@Test(priority = 9)

@@ -13,7 +13,7 @@ import automationpractice.com.pageObject.CreateAccountForm;
 import automationpractice.com.pageObject.Homepage;
 import automationpractice.com.pageObject.SignInForm;
 import utils.EmailsGenerator;
-
+import utils.AddressGenerator;
 
 public class CreateAccountFormTest {
 
@@ -174,18 +174,18 @@ public class CreateAccountFormTest {
 	@Test(priority = 6)
 	public void createAccountSuccessfully() {
 		// Required fields filled
-		createAccountForm.setCustomerFirstNameField("John");
-		createAccountForm.setCustomerLastNameField("Doe");
+		createAccountForm.setCustomerFirstNameField(utils.AddressGenerator.getNextAddressFirstName());
+		createAccountForm.setCustomerLastNameField(utils.AddressGenerator.getNextAddressLastName());
 		createAccountForm.setCustomerPasswordField("tester123");
 		createAccountForm.selectCustomerDateOfBirthDay("20");
 		createAccountForm.selectCustomerDateOfBirthMonth("10");
 		createAccountForm.selectCustomerDateOfBirthYear("2000");
-		createAccountForm.setAddressField("Centar");
-		createAccountForm.setCityField("Novi Sad");
-		createAccountForm.selectState("7");
-		createAccountForm.setPostalCodeField("21000");
-		createAccountForm.setHomePhoneField("056");
-		createAccountForm.setMobilePhoneField("066");
+		createAccountForm.setAddressField(utils.AddressGenerator.getNextAddressStreetName());
+		createAccountForm.setCityField(utils.AddressGenerator.getNextAddressCityName());
+		createAccountForm.selectState(utils.AddressGenerator.getNextAddressStateName());
+		createAccountForm.setPostalCodeField(utils.AddressGenerator.getNextAddressZipCode());
+		createAccountForm.setHomePhoneField(utils.AddressGenerator.getNextAddressHomePhone());
+		createAccountForm.setMobilePhoneField(utils.AddressGenerator.getNextAddressMobilePhone());
 		createAccountForm.setAddressAliasField("My Address");
 		createAccountForm.getRegisterBtn().click();
 
