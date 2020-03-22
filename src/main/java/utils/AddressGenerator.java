@@ -3,7 +3,8 @@ package utils;
 import java.io.*;
 import com.github.javafaker.Faker;
 import java.util.Scanner;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddressGenerator {
 
@@ -15,7 +16,7 @@ public class AddressGenerator {
     private static final String ZIP_CODE_FILE_PATH = "AddressZipCode.txt";
     private static final String HOME_PHONE_FILE_PATH = "AddressHomePhone.txt";
     private static final String MOBILE_PHONE_FILE_PATH = "AddressMobilePhone.txt";
-
+    private static Logger logger = Logger.getLogger(AddressGenerator.class.getName());
     public static Faker faker = new Faker();
 
 
@@ -27,12 +28,12 @@ public class AddressGenerator {
              addressFirstName = (faker.name().firstName());
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting first name",e);
         }
         try (PrintWriter writer = new PrintWriter(FIRST_NAME_FILE_PATH, "UTF-8")) {
             writer.println(addressFirstName);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting first name",e);
         }
         return addressFirstName;
     }
@@ -54,12 +55,12 @@ public class AddressGenerator {
             addressLastName = (faker.name().lastName());
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting last name",e);
         }
         try (PrintWriter writer = new PrintWriter(LAST_NAME_FILE_PATH, "UTF-8")) {
             writer.println(addressLastName);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting last name",e);
         }
         return addressLastName;
     }
@@ -81,12 +82,12 @@ public class AddressGenerator {
             addressStreetName = (faker.address().streetName());
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting street name",e);
         }
         try (PrintWriter writer = new PrintWriter(STREET_NAME_FILE_PATH, "UTF-8")) {
             writer.println(addressStreetName);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting street name",e);
         }
         return addressStreetName;
     }
@@ -108,12 +109,12 @@ public class AddressGenerator {
             addressCityName = (faker.address().cityName());
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting city name",e);
         }
         try (PrintWriter writer = new PrintWriter(CITY_NAME_FILE_PATH, "UTF-8")) {
             writer.println(addressCityName);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting city name",e);
         }
         return addressCityName;
     }
@@ -135,12 +136,12 @@ public class AddressGenerator {
             addressStateName = (faker.address().state());
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting state name",e);
         }
         try (PrintWriter writer = new PrintWriter(STATE_NAME_FILE_PATH, "UTF-8")) {
             writer.println(addressStateName);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting state name",e);
         }
         return addressStateName;
     }
@@ -165,12 +166,12 @@ public class AddressGenerator {
             AddressZipCode = Long.toString(LongAddressZipCode);
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting zip code",e);
         }
         try (PrintWriter writer = new PrintWriter(ZIP_CODE_FILE_PATH, "UTF-8")) {
             writer.println(AddressZipCode);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting zip code",e);
         }
         return AddressZipCode;
     }
@@ -195,12 +196,12 @@ public class AddressGenerator {
             AddressHomePhone = Long.toString(LongAddressHomePhone);
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting home phone",e);
         }
         try (PrintWriter writer = new PrintWriter(HOME_PHONE_FILE_PATH, "UTF-8")) {
             writer.println(AddressHomePhone);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting home phone",e);
         }
         return AddressHomePhone;
     }
@@ -225,12 +226,12 @@ public class AddressGenerator {
             AddressMobilePhone = Long.toString(LongAddressMobilePhone);
 
         } catch (IOException e) {
-
+            logger.log(Level.INFO, "Exception during getting mobile phone",e);
         }
         try (PrintWriter writer = new PrintWriter(MOBILE_PHONE_FILE_PATH, "UTF-8")) {
             writer.println(AddressMobilePhone);
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
-
+            logger.log(Level.INFO, "Exception during getting mobile phone",e);
         }
         return AddressMobilePhone;
     }
